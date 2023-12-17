@@ -1,1 +1,50 @@
-
+1 ping module in playbook
+---
+- hosts: localhost
+  tasks: 
+  - name: simple ping 
+    ping
+2 create a file fooplayfile
+---
+- hosts: localhost
+  tasks: 
+  - name: Create a file using file module
+    file: 
+      path: fooplayfile
+      state: touch
+3 create a directory
+---
+- hosts: localhost
+  tasks: 
+  - name: create a directory using file module
+    file: 
+      path: fooplayfolder
+      state: directory 
+4 execute a command using yamls playbook
+---
+- hosts: localhost
+  tasks:
+  - name: Run a command to check hostname
+    command: date
+5 copy a file
+---
+- hosts: localhost
+  tasks: 
+  - name: Task 1 backup playdata folder
+    copy: 
+      src: data.txt
+      dest: databackup.txt
+6 add a user using yaml book
+---
+- hosts: localhost 
+  tasks: 
+  - name: create a user bob 
+    user: bob
+    state: present
+7 remove a user using yaml book
+---
+- hosts: localhost 
+  tasks:
+  - name: remove a user bob 
+    user: bob
+    state: absent
